@@ -1,52 +1,26 @@
-export const actionTypes = {
-  FAILURE: 'FAILURE',
-  INCREMENT: 'INCREMENT',
-  DECREMENT: 'DECREMENT',
-  RESET: 'RESET',
-  LOAD_DATA: 'LOAD_DATA',
-  LOAD_DATA_SUCCESS: 'LOAD_DATA_SUCCESS',
-  START_CLOCK: 'START_CLOCK',
-  TICK_CLOCK: 'TICK_CLOCK',
+export const ActionType = {
+  SAGA1: 'SAGA1',
+  SAGA2: 'SAGA2',
+  REDUCER1: 'REDUCER1',
+  REDUCER2: 'REDUCER2',
 }
 
-export function failure(error) {
-  return {
-    type: actionTypes.FAILURE,
-    error,
-  }
-}
+export const saga1Action = (payload) => ({
+  type: ActionType.SAGA1,
+  payload,
+})
 
-export function increment() {
-  return { type: actionTypes.INCREMENT }
-}
+export const saga2Action = (payload) => ({
+  type: ActionType.SAGA2,
+  payload,
+})
 
-export function decrement() {
-  return { type: actionTypes.DECREMENT }
-}
+export const reducer1Action = (payload) => ({
+  type: ActionType.REDUCER1,
+  payload,
+})
 
-export function reset() {
-  return { type: actionTypes.RESET }
-}
-
-export function loadData() {
-  return { type: actionTypes.LOAD_DATA }
-}
-
-export function loadDataSuccess(data) {
-  return {
-    type: actionTypes.LOAD_DATA_SUCCESS,
-    data,
-  }
-}
-
-export function startClock() {
-  return { type: actionTypes.START_CLOCK }
-}
-
-export function tickClock(isServer) {
-  return {
-    type: actionTypes.TICK_CLOCK,
-    light: !isServer,
-    ts: Date.now(),
-  }
-}
+export const reducer2Action = (payload) => ({
+  type: ActionType.REDUCER2,
+  payload,
+})

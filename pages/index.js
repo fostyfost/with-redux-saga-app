@@ -1,28 +1,21 @@
 import React from 'react'
-import { connect } from 'react-redux'
-
-import { loadData, startClock, tickClock } from '../actions'
-import Page from '../components/page'
+import {saga1Action} from "../actions";
+import {Text} from "../components/Text";
 
 class Index extends React.Component {
   static async getInitialProps(props) {
-    const { store, isServer } = props.ctx
-    store.dispatch(tickClock(isServer))
-
-    if (!store.getState().placeholderData) {
-      store.dispatch(loadData())
-    }
-
-    return { isServer }
-  }
-
-  componentDidMount() {
-    this.props.dispatch(startClock())
+    const { store } = props.ctx
+    store.dispatch(saga1Action('THIS IS SAGA 1 ACTION PAYLOAD'))
+    return {}
   }
 
   render() {
-    return <Page title="Index Page" linkTo="/other" NavigateTo="Other Page" />
+    return (
+        <div>
+          <Text/>
+        </div>
+    )
   }
 }
 
-export default connect()(Index)
+export default Index
